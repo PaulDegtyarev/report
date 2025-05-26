@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon May 26 17:33:16 MSK 2025","Mon May 26 17:33:44 MSK 2025","28001","","Тесткейс №5","","ru.sbtqa.tag.kia.test.ContactTest","testCreateContact","Кейс №9. Создание клиента.",""
+"passed","Mon May 26 17:33:44 MSK 2025","Mon May 26 17:34:43 MSK 2025","59724","","Тесткейс №3","","ru.sbtqa.tag.kia.test.LeadTest","testFullFlow","Раздел 3, 3.1, кейс 1. Создание лида из Website.",""
+"passed","Mon May 26 17:34:43 MSK 2025","Mon May 26 17:35:07 MSK 2025","23724","","Отвязка Webmiss","","ru.sbtqa.tag.kia.test.WebmissTest","linkOwnershipTest","Кейс 1. Дата отвязки в следующем месяце.",""
+"passed","Mon May 26 17:32:46 MSK 2025","Mon May 26 17:33:15 MSK 2025","28833","","Тесткейс №5","","ru.sbtqa.tag.kia.test.ContactTest","testCreateAndUpdateContact","Кейс №10. Создание и обновление клиента.",""
