@@ -1,0 +1,45 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:asi="http://siebel.com/asi" xmlns:req="http://www.siebel.com/xml/Request">
+    <soapenv:Header>
+        <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext">
+            <wsse:UsernameToken xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility">
+                <wsse:Username>KMRWEBSVC</wsse:Username>
+                <wsse:Password Type="wsse:PasswordText">Kr!*STAR94p</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soapenv:Header>
+    <soapenv:Body>
+        <asi:ProcessMessage_Input>
+            <req:Payload>
+                <req:Request>
+                    <!--You may enter the following 5 items in any order-->
+                    <req:Customer    FirstName="AUTOTEST13CLIENT"
+                                     MarketingAgreement="Y"
+                                     PersonalAgreement="N"
+                                     LastName="Нет данных"
+                                     EmailAddress="AUTOTEST13@MAIL.RU"
+                                     MobilePhone="79998883333"
+                                     Gender="M" City="Г ОРЕХОВО-ЗУЕВО"
+                                     Region="SZFO"
+                                     Country="Russia"
+                                     HearFrom="TV">
+                    </req:Customer>
+                    <!--Optional:-->
+                    <req:ExternalSystem>Website</req:ExternalSystem>
+                    <!--Optional:-->
+                    <req:Subsidiary>KMR</req:Subsidiary>
+                    <req:Lead
+                            Source="Customer"
+                            Method="Website"
+                            LeadType ="Roadside Assistance Plus"
+                            DealerCode = "C40K015545"
+                            SubDealerCode="C40K015545"
+                            RequestDate ="20240122"
+                    >
+                    </req:Lead>
+                    <!--Optional:-->
+                    <req:InterfaceCode>WS_CRE_LEAD</req:InterfaceCode>
+                </req:Request>
+            </req:Payload>
+        </asi:ProcessMessage_Input>
+    </soapenv:Body>
+</soapenv:Envelope>

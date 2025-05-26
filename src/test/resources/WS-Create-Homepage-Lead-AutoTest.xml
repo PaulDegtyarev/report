@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="463690bd-031b-4cab-9782-31d9880da57c" activeEnvironment="Default" name="WS Create Homepage Lead DEFA" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="6cba24b7-5d19-4444-882e-dae2d6f8721f" wsaVersion="NONE" name="hkmeTransport" type="wsdl" bindingName="{http://siebel.com/asi}hkmeTransport" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/FILITAKhokhlov/Desktop/WS%20Create%20Homepage%20Lead%20DEFA.WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\FILITAKhokhlov\Desktop\WS%20Create%20Homepage%20Lead%20DEFA.WSDL"><con:part><con:url>file:\C:\Users\FILITAKhokhlov\Desktop\WS%20Create%20Homepage%20Lead%20DEFA.WSDL</con:url><con:content><![CDATA[<definitions targetNamespace="http://siebel.com/asi" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsdLocal1="http://www.siebel.com/xml/Request" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/asi" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal2="http://www.siebel.com/xml/Response">
+  <types>
+    <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.siebel.com/xml/Request">
+      <xsd:element name="Payload" type="xsdLocal1:Payload"/>
+      <xsd:complexType name="PayloadTopElmt">
+        <xsd:all>
+          <xsd:element name="Payload" minOccurs="1" maxOccurs="1" type="xsdLocal1:Payload"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Payload">
+        <xsd:all>
+          <xsd:element name="Request" minOccurs="1" maxOccurs="1" type="xsdLocal1:Request"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Request">
+        <xsd:all>
+          <xsd:element name="Customer" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+          <xsd:element name="ExternalSystem" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+          <xsd:element name="Subsidiary" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+          <xsd:element name="Lead" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+          <xsd:element name="InterfaceCode" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.siebel.com/xml/Response">
+      <xsd:element name="Payload" type="xsdLocal2:Payload"/>
+      <xsd:complexType name="PayloadTopElmt">
+        <xsd:all>
+          <xsd:element name="Payload" minOccurs="1" maxOccurs="1" type="xsdLocal2:Payload"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Payload">
+        <xsd:all>
+          <xsd:element name="Response" minOccurs="1" maxOccurs="1" type="xsdLocal2:Response"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Response">
+        <xsd:all>
+          <xsd:element name="ErrorMessage" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+          <xsd:element name="ResultCode" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+          <xsd:element name="LogId" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://siebel.com/asi">
+      <xsd:import namespace="http://www.siebel.com/xml/Request"/>
+      <xsd:import namespace="http://www.siebel.com/xml/Response"/>
+      <xsd:element name="ProcessMessage_Input">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element ref="xsdLocal1:Payload"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ProcessMessage_Output">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element ref="xsdLocal2:Payload"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="ProcessMessage_Input">
+    <part name="ProcessMessage_Input" element="tns:ProcessMessage_Input"/>
+  </message>
+  <message name="ProcessMessage_Output">
+    <part name="ProcessMessage_Output" element="tns:ProcessMessage_Output"/>
+  </message>
+  <portType name="hkmeTransport">
+    <operation name="ProcessMessage">
+      <input message="tns:ProcessMessage_Input"/>
+      <output message="tns:ProcessMessage_Output"/>
+    </operation>
+  </portType>
+  <binding name="hkmeTransport" type="tns:hkmeTransport">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="ProcessMessage">
+      <soap:operation soapAction="document/http://siebel.com/asi:ProcessMessage"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="HKME_Inbound_Web_Service">
+    <port name="hkmeTransport" binding="tns:hkmeTransport">
+      <soap:address location="https://apiqa.rucrm.net/siebel/app/eai_anon/enu?SWEExtSource=SecureWebService&amp;SWEExtCmd=Execute"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://apiqa.rucrm.net/siebel/app/eai_anon/enu?SWEExtSource=SecureWebService&amp;SWEExtCmd=Execute</con:endpoint></con:endpoints><con:operation id="8ca2df91-d91d-491e-ba9c-818fae6fcfcd" isOneWay="false" action="document/http://siebel.com/asi:ProcessMessage" name="ProcessMessage" bindingOperationName="ProcessMessage" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4315c563-e3ce-4c82-996e-cad4426a93a3" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://apiqa.rucrm.net/siebel/app/eai_anon/enu?SWEExtSource=SecureWebService&amp;SWEExtCmd=Execute</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:asi="http://siebel.com/asi" xmlns:req="http://www.siebel.com/xml/Request">\r
+    <soapenv:Header>
+        <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext">
+        <wsse:UsernameToken xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility">
+        <wsse:Username>KMRWEBSVC</wsse:Username>
+        <wsse:Password Type="wsse:PasswordText">Kr!*STAR94p</wsse:Password>
+        </wsse:UsernameToken>
+        </wsse:Security>
+       </soapenv:Header>
+   <soapenv:Body>
+        <asi:ProcessMessage_Input>
+            <req:Payload>
+                <req:Request>
+                    <!-- Customer должен быть строкой, а не элементом с атрибутами -->
+                    <req:Customer>FirstName=AUTOTEST8CLIEN;MarketingAgreement=Y;PersonalAgreement=N;LastName=Нет данных;EmailAddress=AUTOTEST8@MAIL.RU;MobilePhone=79998882299;Gender=M;City=Г ОРЕХОВО-ЗУЕВО;Region=SZFO;Country=Russia;HearFrom=TV</req:Customer>
+                    <req:ExternalSystem>Website</req:ExternalSystem>
+                    <req:Subsidiary>KMR</req:Subsidiary>
+                    <!-- Lead тоже должен быть строкой -->
+                    <req:Lead>Source=Customer;Method=Website;LeadType=Roadside Assistance Plus;DealerCode=C40K015545;SubDealerCode=C40K015545;RequestDate=20240122</req:Lead>
+                    <req:InterfaceCode>WS_CRE_LEAD</req:InterfaceCode>
+                </req:Request>
+            </req:Payload>
+        </asi:ProcessMessage_Input>
+    </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="document/http://siebel.com/asi:ProcessMessage"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

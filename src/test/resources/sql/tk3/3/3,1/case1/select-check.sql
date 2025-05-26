@@ -1,0 +1,1 @@
+select SR_STAT_ID from S_SRV_REQ where CST_CON_ID='9-AUTOTST1'
